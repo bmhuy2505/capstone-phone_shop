@@ -1,0 +1,390 @@
+// Variables
+$background-color: #f7f7f7;
+$main-color: #2c5364;
+$gradient-color1: rgba(29, 38, 113, 0.8);
+$gradient-color2: rgba(195, 55, 100, 0.8);
+$btn-background: #294d5c;
+$btn-hover-background: #5f9db8;
+$cart-background: rgba(0, 0, 0, 0.5);
+
+// Global Styles
+* {
+    box-sizing: border-box;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+    font-size: 16px;
+}
+
+body {
+    margin-bottom: 0px;
+    background-color: $background-color;
+}
+
+p {
+    margin: 0 0 16px;
+}
+
+h2 {
+    margin: 0;
+}
+
+// Buttons
+.btn {
+    position: relative;
+    border: 0;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    color: rgba(255, 255, 255, 0.85);
+    font-family: "Muli";
+    font-size: 14px;
+    line-height: 14px;
+    background-color: $btn-background;
+    cursor: pointer;
+    transition: all 0.15s;
+
+    &:hover {
+        outline: none;
+        background-color: $btn-hover-background;
+    }
+
+    &:focus {
+        outline: 0;
+        box-shadow: none !important;
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    & + .btn {
+        margin-left: 8px;
+    }
+}
+
+// Main Color and Gradient
+.main-color {
+    background: $main-color;
+}
+
+.gradient-custom {
+    background: linear-gradient($gradient-color1, $gradient-color2);
+}
+
+// Navbar
+header {
+    #navbarColor01 {
+        a {
+            transition: 0.3s all ease-in-out;
+
+            &:hover {
+                transform: scale(1.15);
+            }
+        }
+    }
+}
+
+// Navbar Layout
+.nav1 {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.nav2 {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+// Banner
+nav.black {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.banner-image {
+    background: linear-gradient($gradient-color1, $gradient-color2),
+        url(../img/banner.jpg);
+    background-size: cover;
+    background-position: center;
+
+    .btn {
+        font-size: 18px;
+    }
+}
+
+.banner-phone-image img {
+    width: 800px;
+}
+
+// Cart
+.form {
+    position: relative;
+
+    &__footer {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        margin-top: 24px;
+    }
+}
+
+.red-btn {
+    background-color: #df461f;
+
+    &:hover {
+        background-color: #e96443;
+    }
+}
+
+.yellow-btn {
+    background-color: #f0b80f;
+
+    &:hover {
+        background-color: #f1ca55;
+    }
+}
+
+.microcopy {
+    display: block;
+    color: #9da3af;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+// Cart Overlay and Contents
+.cart {
+    &.is-hidden {
+        .cart__overlay {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .cart__contents {
+            transform: translate(0, 0);
+        }
+    }
+
+    &__overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        visibility: visible;
+        opacity: 1;
+        transition: all 0.25s ease-in;
+        background-color: $cart-background;
+    }
+
+    &__contents {
+        position: fixed;
+        top: 10%;
+        bottom: 0;
+        left: 100%;
+        width: 500px;
+        height: 92%;
+        overflow: auto;
+        background-color: #fff;
+        transition: all 0.25s ease-in-out;
+        transform: translate(-100%, 0);
+    }
+
+    &__products,
+    &__totals {
+        padding: 28px;
+    }
+
+    &__totals {
+        background-color: $background-color;
+    }
+}
+
+.product {
+    display: flex;
+    padding: 16px 0;
+    border-bottom: 1px solid #ccc;
+
+    &:last-child {
+        padding-bottom: 0;
+        border-bottom-width: 0;
+    }
+
+    &__thumbnail {
+        width: 120px;
+        height: 120px;
+        border-radius: 3px;
+        background-color: #fff;
+    }
+
+    &__details {
+        padding-left: 16px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__name {
+        font-weight: bold;
+    }
+
+    &__stuff,
+    &__options {
+        margin-top: 8px;
+        font-size: 14px;
+    }
+
+    &__price {
+        text-align: right;
+    }
+}
+
+// Cart Count Icon
+.nav-link {
+    .badge {
+        position: relative;
+        padding: 0.2em 0.5em;
+        top: -10px;
+        left: -12px;
+        z-index: 1;
+    }
+}
+
+// Quantity Button
+.qty {
+    .count {
+        color: #000;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 20px;
+        min-width: 35px;
+        text-align: center;
+    }
+
+    .plus,
+    .minus {
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        margin-top: 1px;
+        color: white;
+        text-align: center;
+        border-radius: 50%;
+        background-color: #284c5b !important;
+
+        &:hover {
+            background-color: #4166af !important;
+        }
+    }
+}
+
+// Product Card
+.card {
+    border: solid 1px rgb(238, 238, 238);
+    border-radius: 15px;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 6px 6px 12px #e2ebfc, -6px -6px 12px #fff;
+    transition: 0.3s all ease-in-out;
+    height: 600px;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    &:hover {
+        border: none;
+        box-shadow: #293e63 0px 22px 70px 4px;
+        transform: scale(1.1);
+        z-index: 1;
+
+        .content-overlay {
+            opacity: 1;
+        }
+
+        .btn {
+            top: 85%;
+            opacity: 1;
+        }
+
+        & .btn:active {
+            background-color: #ffdc74;
+        }
+    }
+
+    .content-overlay {
+        background: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        height: 120%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        transition: all 0.4s ease-in-out;
+    }
+
+    .content-details {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        transition: all 0.3s ease-in-out;
+
+        h3,
+        p {
+            color: #fff;
+        }
+
+        h3 {
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5em;
+            font-size: 1.5em;
+        }
+
+        p {
+            font-size: 1em;
+        }
+    }
+
+    .btn {
+        font-size: 17px;
+        border-radius: 20px;
+        position: absolute;
+        top: 100%;
+        left: 25%;
+        transition: all 0.5s ease-in-out;
+        z-index: 1;
+        background-color: #daa300;
+        opacity: 0;
+
+        &:hover {
+            background-color: #f0b70e;
+        }
+    }
+}
+
+// Footer
+footer {
+    bottom: 0;
+    width: 100%;
+}
+
+@media (max-width: 1199.5px) {
+}
+
+@media (max-width: 991.5px) {
+}
+
+@media (max-width: 525.5px) {
+    .cart__contents {
+        width: 400px;
+    }
+}
