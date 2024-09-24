@@ -157,7 +157,7 @@
                                 id="selectList"
                                 aria-label="Default select example"
                             >
-                                <option value="all">All Brands</option>
+                                <option value="all">Tất cả</option>
                                 <option value="Apple">Apple</option>
                                 <option value="Samsung">Samsung</option>
                             </select>
@@ -172,10 +172,8 @@
                 <div class="cart__overlay"></div>
                 <div class="cart__contents">
                     <div class="cart__products">
-                        <h2>Shopping Cart</h2>
-                        <p class="microcopy">
-                            An overview of your selected products.
-                        </p>
+                        <h2>Giỏ hàng</h2>
+                        <p class="microcopy">Sản phẩm bạn đã chọn.</p>
                         <div class="products" id="cartList"></div>
                     </div>
                     <div class="cart__totals">
@@ -183,7 +181,7 @@
                             <tbody>
                                 <tr>
                                     <th class="align-left font-normal tertiary">
-                                        Subtotal
+                                        Tạm tính
                                     </th>
                                     <td class="align-right" id="subTotal">
                                         $0
@@ -191,7 +189,7 @@
                                 </tr>
                                 <tr>
                                     <th class="align-left font-normal tertiary">
-                                        Shipping <small>(estimated)</small>
+                                        Phí vận chuyển
                                     </th>
                                     <td class="align-right" id="shipping">
                                         $0
@@ -199,42 +197,32 @@
                                 </tr>
                                 <tr>
                                     <th class="align-left font-normal tertiary">
-                                        Tax <small>(estimated)</small>
+                                        Thuế
                                     </th>
                                     <td class="align-right" id="tax">$0</td>
                                 </tr>
                                 <tr>
-                                    <th class="align-left">Total</th>
+                                    <th class="align-left">Tổng cộng</th>
                                     <td class="align-right" id="priceTotal">
                                         $0
                                     </td>
                                 </tr>
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td colspan="2" class="tertiary">
-                                        <small
-                                            >Estimations based on New York,
-                                            United States</small
-                                        >
-                                    </td>
-                                </tr>
-                            </tfoot>
                         </table>
                         <div class="form__footer">
                             <button class="btn first js-toggle-cart">
-                                Continue Shopping
+                                Tiếp tục mua
                             </button>
                             <button class="btn yellow-btn" onclick="payNow()">
-                                Pay Now
+                                Thanh toán
                             </button>
                             <button
                                 class="btn me-5 ms-0 px-4 red-btn"
                                 onclick="emptyCart()"
                                 id="emptyCart"
                             >
-                                <i class="fa-solid fa-trash me-2"></i> Empty
-                                Cart
+                                <i class="fa-solid fa-trash me-2"></i> Xoá giỏ
+                                hàng
                             </button>
                         </div>
                     </div>

@@ -31,7 +31,7 @@ const renderList = (phoneList) => {
             }</span>
           </div>
   
-          <p class = 'pt-5'><u>click here for more details</u></p>
+          <p class = 'pt-5'><u>Bấm để xem chi tiết</u></p>
         </div>
         <div class="card-body">
           <div class="text-center">
@@ -53,11 +53,11 @@ const renderList = (phoneList) => {
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
             </div>
-            <span class = 'text-success'><b>In Stock</b></span>
+            <span class = 'text-success'><b>Còn hàng</b></span>
           </div>
           <button type="button" class="btn btn-block w-50" onclick ="btnAddToCart('${
               ele.id
-          }')">Add to cart</button>
+          }')">Thêm giỏ hàng</button>
         </div>
       </div>
     </div>`;
@@ -70,10 +70,6 @@ const renderCart = (cart) => {
     cart.forEach((ele) => {
         content += `<div class="product">
     <div class="product__1">
-      <div class="product__thumbnail">
-        <img src=${ele.product.img} 
-          alt="Italian Trulli">
-      </div>
       <div class="product__details">
         <div style="margin-bottom: 8px;"><b>${ele.product.name}</b></div>
         <div style="font-size: 90%;">Screen: <span class="tertiary">${
@@ -123,7 +119,7 @@ const renderCart = (cart) => {
         "$" + Math.floor(subTotal * 1.1 + shipping);
 };
 
-// hàm tính tổng tiền trong giỏ hàng
+// Tính tiền giỏ hàng
 const calculateSubTotal = (cart) => {
     let subTotal = 0;
     cart.forEach((ele) => {
@@ -132,7 +128,6 @@ const calculateSubTotal = (cart) => {
     return subTotal;
 };
 
-// hàm tìm cart item trong giỏ hàng theo id sản phẩm, trả về cartitem
 const findItemById = (cart, id) => {
     let item;
     cart.forEach((ele) => {
@@ -153,7 +148,7 @@ window.onload = async () => {
     renderCart(cart);
 };
 
-//lọc phone theo hãng
+// Lọc điện thoại
 getEle("selectList").onchange = async () => {
     const data = await service.getPhones();
     const selectValue = getEle("selectList").value;
@@ -195,7 +190,7 @@ window.btnAddToCart = async (productId) => {
     localStorage.setItem("cart", JSON.stringify(cart));
 };
 
-// dấu cộng trong giỏ hàng
+// Dấu cộng
 window.btnAdd = (id) => {
     let cartItem = findItemById(cart, id);
     if (cartItem) cartItem.quantity++;
@@ -203,7 +198,7 @@ window.btnAdd = (id) => {
     localStorage.setItem("cart", JSON.stringify(cart));
 };
 
-// dấu trừ trong giỏ hàng
+// Dấu trừ
 window.btnMinus = (id) => {
     let cartItem = findItemById(cart, id);
     if (cartItem) cartItem.quantity--;
@@ -212,27 +207,26 @@ window.btnMinus = (id) => {
     localStorage.setItem("cart", JSON.stringify(cart));
 };
 
-// xóa sản phẩm khỏi giỏ hàng
+// Xóa sản phẩm
 window.btnRemove = (id) => {
     cart = cart.filter((ele) => ele.product.id != id);
     renderCart(cart);
     localStorage.setItem("cart", JSON.stringify(cart));
 };
 
-// clear giỏ hàng
+// Xoá giỏ hàng
 window.emptyCart = () => {
     cart = [];
     renderCart(cart);
     localStorage.setItem("cart", JSON.stringify(cart));
 };
 
-//Nút thanh toán
+// Nút thanh toán
 window.payNow = () => {
     if (cart.length > 0) {
         Swal.fire({
-            // position: 'top-end',
             icon: "success",
-            title: "Your order is completed",
+            title: "Thanh toán thành công",
             showConfirmButton: false,
             timer: 1500,
         });
@@ -241,8 +235,8 @@ window.payNow = () => {
     } else {
         Swal.fire({
             icon: "error",
-            title: "Oops...",
-            text: "Your cart is empty",
+            title: "Xin lỗi",
+            text: "Giỏ hàng đang trống",
         });
     }
 };
