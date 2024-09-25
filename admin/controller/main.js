@@ -54,7 +54,6 @@ window.editProduct = (id) => {
 // Update
 window.updateProducts = () => {
   var product = getInformation();
-  console.log("🚀 ~ product:", product);
   axios({
     url: `${BASE_URl}/${editedID}`,
     method: "PUT",
